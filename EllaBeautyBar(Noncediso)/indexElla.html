@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ella Beauty Bar</title>
+    <link rel="stylesheet" href="ella.css">
+
+    <script src="ella.js"></script>
+    <script src="cart.js" defer></script>
+    <script src="checkout.js" defer></script>
+
+
+</head>
+<body>
+<header>
+    <h1>Ella Beauty Bar</h1>
+    <nav>
+        <ul>
+
+
+            <li>
+                <a href="file:///Users/cherry/Library/Mobile%20Documents/com~apple~CloudDocs/xampp-osx-8.2.4-0-installer.app/ellaBeautyBar/indexElla.html" onclick="loadSection('home')">Home</a>
+
+            </li>
+            <li><a href="#" onclick="loadSection('about')">About</a></li>
+            <li>
+                <a href="#" onclick="toggleServicesDropdown()">Services</a>
+                <ul >
+                    <li><a href="#" onclick="loadSection('hair')">Hair Styling</a></li>
+                    <li><a href="#" onclick="loadSection('nail')">Nail Bar</a></li>
+                    <li><a href="#" onclick="loadSection('massage')">Massages</a></li>
+                </ul>
+            </li>
+            <li><a href="#" onclick="loadSection('booking')">Book Now</a></li>
+            <li>
+                <a href="#" onclick="loadSection('shop')">Shop</a>
+                <ul>
+                    <li><a href="#" onclick="loadSection('wig')">Wigs</a></li>
+                    <li><a href="#" onclick="loadSection('nail-care-catalogue')">Nailcare Products</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" onclick="loadSection('contact')">Contact</a></li>
+
+            <li>
+                <a href="#" onclick="loadSection('shop')">Signin/Login</a>
+                <ul>
+                    <li><a href="#" id="signup-link" onclick="loadSection('signup-section')">Sign Up</a></li>
+                    <li><a href="#" id="login-link" onclick="loadSection('login-section')">Login</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#" onclick="loadSection('cart')">Cart</a></li>
+
+        </ul>
+
+
+    </nav>
+
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button onclick="search()">Search</button>
+    </div>
+</header>
+
+
+
+<section id="home">
+    <h2>Welcome to Ella Beauty Bar</h2>
+    <p>Your one-stop shop for hair styling, nail care, and massages.</p>
+    <button onclick="loadSection('shop')">Shop Now</button>
+
+
+</section>
+
+<section class="featured-products">
+
+    <h2>Featured Products</h2>
+    <div class="product-list">
+        <!-- Example product items -->
+        <div class="product-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2019/03/Capture0104-3-scaled-e1706119232572-300x300.jpeg" alt="Wig 1">
+            <h3>Lady Jada (13×4)</h3>
+            <p>R1,500</p>
+            <button class="buy-now" data-name="Lady Jada (13×4)" data-price="1500">Buy Now</button>
+        </div>
+
+        <div class="product-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2024/01/Jerry-curl-300x300.jpg" alt="Curly Wig">
+            <h3>Italian Curl</h3>
+            <p>R1600</p>
+            <button onclick="addToCart(1)">Buy Now</button>
+        </div>
+        <div class="product-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2024/01/IMG_8418-300x300.jpg" alt="Wig 5">
+            <h3>Vogue Double Drawn Black</h3>
+            <p>R2,800</p>
+            <button class="buy-now" data-name="Vogue Double Drawn Black" data-price="2800">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="special-offers">
+    <h2>Special Offers</h2>
+    <div class="offers">
+        <div class="offer-item">
+            <h3>Summer Sale</h3>
+
+            <p>Up to 50% off on selected items!</p>
+            <button onclick="loadSection('shop')">Shop Now</button>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-list">
+        <div class="testimonial-item">
+            <p>"Ella Beauty Bar is the best! My hair has never looked better."</p>
+            <p>- Jane Doe</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="categories">
+    <h2>Our Services</h2>
+    <div class="category-list">
+        <div class="category-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgrBgvfDZTrQqxQiBAi2qTaGO-FIpFZgpkyg&usqp=CAU" alt="Hair">
+            <h3>Hair Styling</h3>
+        </div>
+        <div class="category-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ_TKNGTpDBjYkH9slEi1jsAqEP4R1cCI9_Q&usqp=CAU" alt="Massage">
+            <h3>Massage</h3>
+        </div>
+        <div class="category-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-dpqTAEA8R1Vv5hytfyDH4kVY8ogfBi5gGw&usqp=CAU" alt="Nails">
+            <h3>Nails</h3>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="blog-snippets">
+    <h2>Latest Articles</h2>
+    <div class="blog-list">
+        <div class="blog-item">
+            <h3>5 Tips for Healthy Hair</h3>
+            <p>Learn how to maintain healthy and beautiful hair with these simple tips...</p>
+            <a href= " https://www.batistehair.com/articles/tips-to-get-and-keep-healtheir-hair"> Read More </a>
+        </div>
+        <div class="blog-item">
+            <h3>Healthy Nails</h3>
+            <p>Keep healthy beautiful nails. Learn what to do to ensure that your nails are as healthy as can be...</p>
+            <a href= " https://www.healthline.com/health/beauty-skin-care/healthy-nails"> Read More </a>
+        </div>
+
+
+    </div>
+</section>
+
+<section class="contact-info">
+    <h2>Contact Us</h2>
+    <p>2912 Lerato Street, Rabie Ridge, Midrand</p>
+    <p>Phone: 066 325 4055</p>
+    <p>Email: info@ellabeautybar.com</p>
+</section>
+
+<section class="newsletter-signup">
+    <h2>Join Our Newsletter</h2>
+    <form id="newsletterForm" onsubmit="submitNewsletterForm(event)">
+        <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required>
+        <button type="submit">Sign Up</button>
+    </form>
+</section>
+
+<section class="social-media">
+    <h2>Follow Us</h2>
+    <div class="social-links">
+        <a href="https://instagram.com">Instagram</a>
+        <a href="https://facebook.com">Facebook</a>
+        <a href="https://twitter.com">Twitter</a>
+    </div>
+</section>
+
+<!-- Signup Form -->
+<section id="signup-section" class="hidden">
+    <form action="register.php" method="post">
+        <div class="form-element">
+            <label>Username</label>
+            <input type="text" name="username" pattern="[a-zA-Z0-9]+" required />
+        </div>
+        <div class="form-element">
+            <label>Email</label>
+            <input type="email" name="email" required />
+        </div>
+        <div class="form-element">
+            <label>Password</label>
+            <input type="password" name="password" required />
+        </div>
+        <button type="submit" name="register" value="register">Register</button>
+        <p>Already have an account? <a href="login.php">Login here</a></p>
+
+    </form>
+</section>
+
+<!-- Login Form -->
+<section id="login-section" class="hidden">
+    <form method="post" action="login.php" >
+        <div class="form-element">
+            <label>Username</label>
+            <input type="text" name="username" pattern="[a-zA-Z0-9]+" required />
+        </div>
+        <div class="form-element">
+            <label>Password</label>
+            <input type="password" name="password" required />
+        </div>
+        <button type="submit" name="login" value="login">Log In</button>
+        <p>Do not have an account? <a href="register.php">Register here</a></p>
+
+    </form>
+</section>
+
+
+<section id="about" class="hidden">
+    <h2>About Us</h2>
+    <p>Welcome to Ella Beauty Bar, where beauty isn't just a service but a narrative of self-expression.</p>
+    <p><strong>Our Story:</strong></p>
+    <p>Established in 2020, Ella Beauty Bar was founded with a vision to bring high-quality beauty services to our community. Located in a small township surrounded by larger urban landscapes, our salon has become a local favorite for those seeking personalized and professional beauty treatments. Our founder, Ella Ndou, started this journey with a passion for beauty and a commitment to enhancing the natural beauty of our clients.</p>
+    <p><strong>Our Mission:</strong></p>
+    <p>At Ella Beauty Bar, our mission is to provide exceptional beauty services that not only enhance your appearance but also boost your confidence. We believe in the power of self-care and strive to create a welcoming and inclusive environment where everyone feels valued and beautiful.</p>
+    <p><strong>Our Team:</strong></p>
+    <p>Our team of experienced and skilled beauty professionals is dedicated to staying up-to-date with the latest trends and techniques in the beauty industry. We continuously invest in our team's education and training to ensure that we offer the best services to our clients.</p>
+</section>
+
+<section id="services" class="hidden">
+    <h2>Our Services</h2>
+    <ul>
+        <li>
+            <h3><a href="#" onclick="loadSection('hair')">Hair Styling</a></h3>
+            <p>Haircuts, coloring, and styling for all hair types.</p>
+        </li>
+        <li>
+            <h3><a href="#" onclick="loadSection('nail')">Nail Bar</a></h3>
+            <p>Manicures, pedicures, and nail art.</p>
+        </li>
+        <li>
+            <h3><a href="#" onclick="loadSection('massage')">Massages</a></h3>
+            <p>Relaxing and therapeutic massages to relieve stress.</p>
+        </li>
+    </ul>
+</section>
+
+<section id="booking" class="hidden">
+    <h2>Book an Appointment</h2>
+    <p>Hey Bestie... A non-refundable deposit of 50% secures your booking slot. <br>
+        Deposit must be made within 3 hours. R200 extra for after hours services.<br>
+        POP must be sent via WhatsApp.<br>
+        Absa: 9368786964 REF: Date and time. WhatsApp: 0663254055</p>
+    <form action="booking.php" method="post">
+
+    <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="service">Service:</label>
+        <select id="service" name="service" required>
+            <option value="hair">Hair Styling</option>
+            <option value="nail">Nail Care</option>
+            <option value="massage">Massage</option>
+        </select>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time Slot:</label>
+        <select id="time" name="time" required>
+            <option value="9am">9:00 AM</option>
+            <option value="10am">10:00 AM</option>
+            <option value="11am">11:00 AM</option>
+            <option value="1pm">1:00 PM</option>
+            <option value="2pm">2:00 PM</option>
+            <option value="3pm">3:00 PM</option>
+            <option value="4pm">4:00 PM</option>
+            <option value="5pm">5:00 PM</option>
+            <option value="6pm">6:00 PM</option>
+
+        </select>
+        <button type="submit" name="book">Book Now</button>
+    </form>
+    <div id="formMessage"></div>
+</section>
+
+
+
+
+<section id="hair" class="hidden">
+    <h2>Hair Styling</h2>
+    <p>Our expert stylists are here to provide you with the best haircuts, coloring, and styling.</p>
+    <div class="price-list">
+        <h3>Price List</h3>
+        <ul>
+            <li>Haircuts:
+                <ul>
+                    <li>Women's Cut: R200 - R400 (depending on stylist and complexity)</li>
+                    <li>Men's Cut: R150 - R300</li>
+                    <li>Children's Cut (under 12): R100 - R250</li>
+                </ul>
+            </li>
+            <li>Styling:
+                <ul>
+                    <li>Blowout: R150 - R300</li>
+                    <li>Updo/Event Styling: R300 - R600</li>
+                    <li>Curling/Ironing: R100 - R250</li>
+                </ul>
+            </li>
+
+            <li>Hair Treatments:
+                <ul>
+                    <li>Deep Conditioning Treatment: R150 - R300</li>
+                    <li>Keratin Treatment: R1000 - R2000</li>
+                    <li>Scalp Treatment: R200 - R400</li>
+                </ul>
+            </li>
+            <li>Hair Extensions:
+                <ul>
+                    <li>Clip-In Extensions (application only): R200 - R400</li>
+                    <li>Tape-In Extensions (application only): R400 - R800</li>
+                    <li>Sew-In Extensions (application only): R600 - R1200</li>
+                    <li>Wig Installation: R300 - R600</li>
+                </ul>
+            </li>
+            <li>Chemical Treatments:
+                <ul>
+                    <li>Perms: R400 - R800</li>
+                    <li>Relaxers: R400 - R800</li>
+                    <li>Brazilian Blowout: R800 - R1500</li>
+                </ul>
+            </li>
+            <li>Wig Services:
+                <ul>
+                    <li>Wig Styling: R200 - R400</li>
+                    <li>Wig Maintenance (washing, conditioning, styling): R150 - R300</li>
+                </ul>
+            </li>
+            <li>Special Packages:
+                <ul>
+                    <li>Bridal Hair Package (Trial + Wedding Day): R1000 - R2000</li>
+                    <li>Prom Package (Updo + Makeup): R600 - R1200</li>
+                </ul>
+            </li>
+            <li>Men's Grooming:
+                <ul>
+                    <li>Beard Trim: R50 - R150</li>
+                    <li>Hot Towel Shave: R100 - R250</li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+</section>
+
+<section id="nail" class="hidden">
+    <h2>Nails Bar</h2>
+    <p>Enjoy our manicure, pedicure, and nail art services.</p>
+    <div class="price-list">
+        <h3>Price List</h3>
+        <ul>
+            <li>Manicure:
+                <ul>
+                    <li>Basic: R150</li>
+                    <li>Gel: R250</li>
+                    <li>French: R200</li>
+                    <li>Spa: R300</li>
+                </ul>
+            </li>
+            <li>Pedicure:
+                <ul>
+                    <li>Basic: R200</li>
+                    <li>Gel: R300</li>
+                    <li>French: R250</li>
+                    <li>Spa: R350</li>
+                </ul>
+            </li>
+            <li>Nail Extensions:
+                <ul>
+                    <li>Acrylic: R350</li>
+                    <li>Gel: R400</li>
+                    <li>Silk: R400</li>
+                    <li>Sculptured: R450</li>
+                </ul>
+            </li>
+            <li>Nail Art:
+                <ul>
+                    <li>Per nail: R20 - R50 (depending on complexity)</li>
+                </ul>
+            </li>
+            <li>Nail Repair:
+                <ul>
+                    <li>Per nail: R30 - R60 (depending on severity)</li>
+                </ul>
+            </li>
+            <li>Nail Polish Change:
+                <ul>
+                    <li>Hands: R80</li>
+                    <li>Feet: R100</li>
+                </ul>
+            </li>
+            <li>Paraffin Wax Treatment:
+                <ul>
+                    <li>Hands: R120</li>
+                    <li>Feet: R150</li>
+                </ul>
+            </li>
+            <li>Nail Removal:
+                <ul>
+                    <li>Acrylic/Gel: R100</li>
+                </ul>
+            </li>
+            <li>Kids Nail Services:
+                <ul>
+                    <li>Manicure: R100</li>
+                    <li>Pedicure: R150</li>
+                    <li>Nail Art: R20 - R50 (per nail)</li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+<section id="massage" class="hidden">
+    <h2>Massages</h2>
+    <p>Relax and unwind with our range of massages.</p>
+    <div class="price-list">
+        <h3>Price List</h3>
+        <ul>
+            <li>Massage Services:
+                <ul>
+                    <li>Swedish Massage: R300 - R600</li>
+                    <li>Deep Tissue Massage: R400 - R800</li>
+                    <li>Hot Stone Massage: R500 - R1000</li>
+                    <li>Aromatherapy Massage: R400 - R800</li>
+                    <li>Sports Massage: R400 - R800</li>
+                    <li>Prenatal Massage: R400 - R800</li>
+                    <li>Couples Massage: R800 - R1600</li>
+                    <li>Chair Massage (per minute): R10 - R20</li>
+                </ul>
+            </li>
+            <li>Additional Services:
+                <ul>
+                    <li>Scalp Massage: R100 - R200</li>
+                    <li>Foot Massage: R100 - R200</li>
+                    <li>Hand Massage: R100 - R200</li>
+                    <li>Reflexology: R200 - R400</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section id="wig" class="hidden">
+    <h2>Wigs</h2>
+    <p>Browse our collection of high-quality wigs.</p>
+    <div class="wig-catalogue">
+
+
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2019/03/Capture0104-3-scaled-e1706119232572-300x300.jpeg" alt="Wig 1">
+            <p>Lady Jada (13×4)</p>
+            <p>R1,500</p>
+            <button class="buy-now" data-name="Lady Jada (13×4)" data-price="1500">Buy Now</button>
+        </div>
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2018/06/IMG_8361-e1706118565150-300x300.jpg" alt="Wig 2">
+            <p>Straight Peruvian (4×4 Closure)</p>
+            <p>R2,500</p>
+            <button class="buy-now" data-name="Straight Peruvian (4×4 Closure)" data-price="2500">Buy Now</button>
+        </div>
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2023/02/IMG_8436-300x300.jpg" alt="Wig 3">
+            <p>Italian Curl Double Drawn 13×4</p>
+            <p>R3,000</p>
+            <button class="buy-now" data-name="Italian Curl Double Drawn 13×4" data-price="3000">Buy Now</button>
+        </div>
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2024/01/IMG_8454-300x300.jpg" alt="Wig 4">
+            <p>Rose Curl Double Drawn Black 13×4</p>
+            <p>R2,500</p>
+            <button class="buy-now" data-name="Rose Curl Double Drawn Black 13×4" data-price="2500">Buy Now</button>
+        </div>
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2024/01/IMG_8418-300x300.jpg" alt="Wig 5">
+            <p>Vogue Double Drawn Black</p>
+            <p>R2,800</p>
+            <button class="buy-now" data-name="Vogue Double Drawn Black" data-price="2800">Buy Now</button>
+        </div>
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2020/06/IMG_8428-e1706118851700-300x300.jpg" alt="Wig 6">
+            <p>LLady Jada(13×4) Burgundy</p>
+            <p>R1,750</p>
+            <button class="buy-now" data-name="LLady Jada(13×4) Burgundy" data-price="1750">Buy Now</button>
+        </div>
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2023/12/IMG_8450-300x300.jpg" alt="Wig 7">
+            <p>Rose Curl Double Drawn Brown 13×4</p>
+            <p>R2,750</p>
+            <button class="buy-now" data-name="Rose Curl Double Drawn Brown 13×4" data-price="2750">Buy Now</button>
+        </div>
+        <div class="wig-item">
+            <img src="https://thesanhair.com/wp-content/uploads/2023/11/IMG_8414-300x300.jpg" alt="Wig 8">
+            <p>Straight Peruvian (13×4 Frontal) Copper</p>
+            <p>R1,750</p>
+            <button class="buy-now" data-name="Straight Peruvian (13×4 Frontal) Copper" data-price="1750">Buy Now</button>
+        </div>
+
+    </div>
+
+
+</section>
+
+<section id="nail-care-catalogue" class="hidden">
+    <h2>Nail Care Catalogue</h2>
+    <p>Explore our premium selection of nail care products to keep your nails healthy and beautiful.</p>
+
+    <div class="nail-care-list">
+
+        <div class="nail-care-item">
+            <img src="https://clicks.co.za/medias/?context=bWFzdGVyfHByb2R1Y3QtaW1hZ2VzfDE0OTE1fGltYWdlL2pwZWd8Y0hKdlpIVmpkQzFwYldGblpYTXZhRE13TDJnek5DOHhNRFl4TWpVeU5qSTRORGd6TUM1cWNHY3wxNjVkMmEyZjI4MDM5N2U5NzhjNDIyMGVjNzJiZWU2N2ZiYzQzNGVjZTlhZTY2ZWUyYjJiOTEwZmYwZmU0YzM4" alt="Cuticle Remover">
+            <h3>Cuticle Remover</h3>
+            <p>R90</p>
+            <button class="buy-now" data-name="Cuticle Remover" data-price="90">Add to Cart</button>
+        </div>
+        <div class="nail-care-item">
+            <img src="https://clicks.co.za/medias/?context=bWFzdGVyfHByb2R1Y3QtaW1hZ2VzfDk3MDR8aW1hZ2UvanBlZ3xhRGcxTDJnMll5OHhNRGc0TURNeU9EYzVOREUwTWd8N2Y1M2VkYTg3Yzc5ZGUzOWI3YThhMTRkNjEyZDk5Nzc2ZmM1ZWJhYmViZDNjMGM2NjQ1YmExOTI1ZDAzYzAyNg" alt="Cuticle Oil">
+            <h3>Cuticle Oil</h3>
+            <p>R70</p>
+            <button class="buy-now" data-name="Cuticle Oil" data-price="70">Add to Cart</button>
+        </div>
+        <div class="nail-care-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8jpmkIRWx4hUbEaQeMglZabefVbTdq1sfQ&usqp=CAU" alt="Nail Treatment">
+            <h3>Nail Treatment</h3>
+            <p>R200</p>
+            <button class="buy-now" data-name="Nail Treatment" data-price="200">Add to Cart</button>
+        </div>
+        <div class="nail-care-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkQoFSII4g65WJDLIRG1WHWLhcR0htFPZ-_Q&usqp=CAU" alt="Hand and Nail cream">
+            <h3>Hand And Nail Cream</h3>
+            <p>R100</p>
+            <button class="buy-now" data-name="Hand And Nail Cream" data-price="100">Add to Cart</button>
+        </div>
+        <div class="nail-care-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUxPDnG3DzoMogTskZjBvOi9HmASbc3hN1eHOb_UDRofUGcgy4_BLY3g92yL9HAdwWTdU&usqp=CAU" alt="Hand and Nail cream">
+            <h3>Hand And Nail Cream</h3>
+            <p>R100</p>
+            <button class="buy-now" data-name="Hand And Nail Cream" data-price="100">Add to Cart</button>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="hidden">
+    <h2>Contact Us</h2>
+    <p>We would love to hear from you! Please fill out the form below to get in touch with us.</p>
+    <form  action="contact.php" method="post">
+        <label for="name1">Name:</label>
+        <input type="text" id="name1" name="name" required>
+
+        <label for="email2">Email:</label>
+        <input type="email" id="email2" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit" name="submit">Submit</button>
+    </form>
+</section>
+
+<section id="cart" class="hidden">
+    <h2>Your Cart</h2>
+    <div class="cart-items">
+        <!-- Cart items dynamically added here -->
+    </div>
+    <div class="cart-total">
+        <hr>
+        <h3>Total: <span id="cart-total">R 0.00</span></h3>
+        <button onclick="toggleCheckoutForms()">Checkout</button>
+    </div>
+</section>
+
+<section id="checkout" class="hidden">
+    <h2>Checkout</h2>
+    <div class="payment-options">
+        <button onclick="showCardForm()">Pay with Card</button>
+        <button onclick="showPaypalForm()">Pay with PayPal</button>
+    </div>
+    <div id="card-form" class="hidden">
+        <form id="cardPaymentForm" method="POST" action="/process_card_payment">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" required>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+            <button type="submit">Submit Payment</button>
+        </form>
+    </div>
+    <div id="paypal-form" class="hidden">
+        <script src="https://www.paypal.com/sdk/js?client-id=BAAmrj4X_hPj1Yza1llDu8SWExPF3Bron3WQZ-4pUjZTTCzH9Wsff3S53_zqV0LI6IeOe8BYItpcI30ivY&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+        <div id="paypal-container-SC85V2LCJEWHA"></div>
+        <script>
+            paypal.HostedButtons({
+                hostedButtonId: "SC85V2LCJEWHA",
+            }).render("#paypal-container-SC85V2LCJEWHA")
+        </script>
+    </div>
+</section>
+
+
+<main id="main-content">
+    <!-- Section content will be loaded here -->
+</main>
+
+<footer>
+    <p>&copy; 2024 Ella Beauty Bar. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>
